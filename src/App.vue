@@ -1,6 +1,7 @@
 <script setup>
 import Cell from './components/Cell.vue';
 import { globalStore } from './GlobalStore';
+// globalStore.numList[0][0] = [2]; // this is for test
 </script>
 
 <template>

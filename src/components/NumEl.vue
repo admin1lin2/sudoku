@@ -24,6 +24,7 @@ const numClass = computed(() =>
 span {
     user-select: none;
     /* color: white; */
+    font-size: calc(var(--base-size)/3);
 }
 
 .highlight {
