@@ -15,9 +15,10 @@ const numClass = computed(() =>
 </script>
 
 <template>
-    <span :class="numClass">
+    <span v-if="showNum != 0" :class="numClass">
         {{ props.showNum }}
     </span>
+    <span v-else></span>
 </template>
 
 <style scoped>

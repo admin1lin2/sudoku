@@ -1,5 +1,5 @@
 import { globalStore } from'./GlobalStore'
-import { keymap } from './keymap'
+import { keymap } from './Keymap'
 
 function onKeyDown(event) {
     // console.log(event)

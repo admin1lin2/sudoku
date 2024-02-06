@@ -47,8 +47,12 @@ function onChoose() {
 
 <template>
     <div :class="cellClass" :style="{ backgroundColor: cellHighLight }" @click="onChoose">
-        <span v-for="i in showList" style="display: flex;justify-content: center;align-items: center;">
-            <NumEl :showNum="i"></NumEl>
+        <span v-if="cellClass == 'single'" class="single">
+            <NumEl :showNum="showList[0]"></NumEl>
+        </span>
+        <span v-else class="multi" v-for="i in [...Array(9).keys()]">
+            <NumEl v-if="showList.includes(i+1)" :showNum="i+1"></NumEl>
+            <NumEl v-else :showNum="0"></NumEl>
         </span>
     </div>
 </template>

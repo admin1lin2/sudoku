@@ -12,5 +12,17 @@ export const keymap = {
     },
     's' : () => {
         if (globalStore.row < 8) ++globalStore.row
+    },
+    'ArrowLeft' : () => {
+        if (globalStore.col > 0) --globalStore.col
+    },
+    'ArrowRight' : () => {
+        if (globalStore.col < 8) ++globalStore.col
+    },
+    'ArrowUp' : () => {
+        if (globalStore.row > 0) --globalStore.row
+    },
+    'ArrowDown' : () => {
+        if (globalStore.row < 8) ++globalStore.row
     }
 }
