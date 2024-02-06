@@ -47,7 +47,7 @@ function onChoose() {
 
 <template>
     <div :class="cellClass" :style="{ backgroundColor: cellHighLight }" @click="onChoose">
-        <span v-for="i in showList">
+        <span v-for="i in showList" style="display: flex;justify-content: center;align-items: center;">
             <NumEl :showNum="i"></NumEl>
         </span>
     </div>
@@ -59,8 +59,11 @@ div {
 }
 
 .single {
+    display: flex;
     justify-content: center;
-
+    align-items: center;
+    /* justify-content: center;
+    align-items: center; */
     /* background-color: red;
     border: 1px solid red; */
 }
