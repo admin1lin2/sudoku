@@ -8,13 +8,13 @@ function toInt(args) {
 }
 
 const props = defineProps({
-    showList: Array,
+    showList: Array | Number,
     group: Number,
     offset: Number
 })
 
 const cellClass = computed(() => 
-    props.showList && props.showList.length <= 1 ? 'single' : 'multi'
+    typeof props.showList === 'number' ? 'single' : 'multi'
 )
 
 const row = computed(
@@ -32,7 +32,7 @@ const cellHighLight = computed(
     row.value == globalStore.row || 
     col.value == globalStore.col || 
     props.group == toInt(globalStore.row / 3) * 3 + toInt(globalStore.col / 3)
-    ? 'black' : ''
+    ? (row.value == globalStore.row && col.value == globalStore.col ? '' : 'black') : ''
 )
 
 
@@ -47,8 +47,8 @@ function onChoose() {
 
 <template>
     <div :class="cellClass" :style="{ backgroundColor: cellHighLight }" @click="onChoose">
-        <span v-if="cellClass == 'single'" class="single">
-            <NumEl :showNum="showList[0]"></NumEl>
+        <span v-if="(typeof showList) === 'number'" class="single">
+            <NumEl :showNum="showList"></NumEl>
         </span>
         <span v-else class="multi" v-for="i in [...Array(9).keys()]">
             <NumEl v-if="showList.includes(i+1)" :showNum="i+1"></NumEl>

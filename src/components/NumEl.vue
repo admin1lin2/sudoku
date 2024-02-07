@@ -7,8 +7,8 @@ const props = defineProps({
 })
 
 const numClass = computed(() => 
-    globalStore.numList[globalStore.row][globalStore.col].length == 1 && 
-    globalStore.numList[globalStore.row][globalStore.col][0] == props.showNum 
+    typeof globalStore.numList[globalStore.row][globalStore.col] === 'number' && 
+    globalStore.numList[globalStore.row][globalStore.col] == props.showNum 
     ? 'highlight' : 'common'
 );
 
