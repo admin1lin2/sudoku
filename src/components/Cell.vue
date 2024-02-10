@@ -29,10 +29,12 @@ const col = computed(
 
 const cellHighLight = computed(
     () =>
-    row.value == globalStore.row || 
+    ((row.value == globalStore.row || 
     col.value == globalStore.col || 
-    props.group == toInt(globalStore.row / 3) * 3 + toInt(globalStore.col / 3)
-    ? (row.value == globalStore.row && col.value == globalStore.col ? '' : 'black') : ''
+    props.group == toInt(globalStore.row / 3) * 3 + toInt(globalStore.col / 3)) &&
+    !(row.value == globalStore.row && col.value == globalStore.col))
+    ? (globalStore.lockList.has(row.value*10+col.value) ? 'darkred' : 'black')
+    : (globalStore.lockList.has(row.value*10+col.value) ? 'red' : '')
 )
 
 
