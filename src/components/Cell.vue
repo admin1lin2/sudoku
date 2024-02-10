@@ -53,7 +53,7 @@ function onChoose() {
             <NumEl :showNum="showList"></NumEl>
         </span>
         <span v-else class="multi" v-for="i in [...Array(9).keys()]">
-            <NumEl v-if="showList.includes(i+1)" :showNum="i+1"></NumEl>
+            <NumEl v-if="showList.has(i+1)" :showNum="i+1"></NumEl>
             <NumEl v-else :showNum="0"></NumEl>
         </span>
     </div>
