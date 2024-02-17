@@ -50,6 +50,8 @@ export const keymap = {
                                 }
                             } else if (globalStore.numList[r][c].has(num)) {
                                 globalStore.numList[r][c].delete(num)
+                                if (globalStore.numList[r][c].size == 0)
+                                    globalStore.numList[r][c] = 0
                             }
                         }
                     }
@@ -59,9 +61,14 @@ export const keymap = {
                 }
             }
         } else if (typeof now != 'number') {
-            if (now.has(num)) globalStore.numList[globalStore.row][globalStore.col].delete(num)
+            if (now.has(num)) {
+                globalStore.numList[globalStore.row][globalStore.col].delete(num)
+                if (globalStore.numList[globalStore.row][globalStore.col].size == 0) {
+                    globalStore.numList[globalStore.row][globalStore.col] = 0
+                }
+            }
             else globalStore.numList[globalStore.row][globalStore.col].add(num)
-        } else if (now === 0) {
+        } else if (now == 0) {
             globalStore.numList[globalStore.row][globalStore.col] = new Set([num])
         }
     },
