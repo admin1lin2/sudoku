@@ -1,0 +1,9 @@
+* {
+  font-family: consolas;
+  --base-size: calc(90vmin/9);
+}
+
+body {
+  background-color: #313131;
+  text-align: center;
+}
